@@ -97,8 +97,6 @@ function App() {
     { name: 'Whatever I need to get the job done', category: 'Web Development' }
 ];
 
-
-
   // Array of projects
   const projects = [
     {
@@ -440,7 +438,7 @@ function App() {
                     viewport={{ once: true }}
                   >
                     <img
-                      src="images/image.png"
+                      src="assets/image.png"
                       alt="Profile"
                       className="rounded-lg shadow-lg w-full h-auto object-cover"
                     />
@@ -724,7 +722,7 @@ function App() {
                     className="vintage-border p-2 rounded-lg">
                     <Mail className="w-6 h-6" />
                   </a>
-                  <a href="docs/el_ghassib_ahmed_cv.pdf"
+                  <a href="assets/el_ghassib_ahmed_cv.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="vintage-border p-2 rounded-lg">
@@ -758,7 +756,7 @@ function App() {
                   </a>
                 </div>
                 <div>
-                  <a href="docs/el_ghassib_ahmedcv.pdf"
+                  <a href="assets/el_ghassib_ahmedcv.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-[#EA5455] transition-colors duration-300 flex items-center gap-2">
