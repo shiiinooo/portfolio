@@ -10,7 +10,8 @@ import {
   Star,
   Award,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  Sword
 } from 'lucide-react';
 
 interface Skill {
