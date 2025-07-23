@@ -3,19 +3,16 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Scroll, Sword, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import MagicalParticles from './MagicalParticles';
+import VideoBackground from './VideoBackground';
 
 const EpicHero: React.FC = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background Image with Parallax */}
-      <motion.div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg')`,
-        }}
-        initial={{ scale: 1.1 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 20, ease: "linear" }}
+      {/* Epic Video Background */}
+      <VideoBackground 
+        src="/src/assets/videos/bg.mp4"
+        fallbackImage="https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg"
+        overlay={false}
       />
       
       {/* Atmospheric Overlay */}
