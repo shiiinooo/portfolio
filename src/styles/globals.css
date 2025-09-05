@@ -38,7 +38,7 @@ body {
   left: 0;
   right: 0;
   pointer-events: none;
-  z-index: 10; /* behind menus; nav uses higher z-index */
+  z-index: 5; /* stay below footer (which we raise) */
   color: #000;
   text-transform: uppercase;
   letter-spacing: 0.08em;

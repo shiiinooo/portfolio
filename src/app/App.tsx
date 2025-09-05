@@ -9,7 +9,6 @@ import "../styles/globals.css";
 
 const Portfolio = () => {
    const [cursorVisible, setCursorVisible] = useState(true);
-  const [bottomEdgeVisible, setBottomEdgeVisible] = useState(false);
   const footerRef = useRef<HTMLElement>(null);
 
   // Blinking cursor effect
@@ -20,15 +19,7 @@ const Portfolio = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Observe footer to toggle bottom edge visibility
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => setBottomEdgeVisible(entry.isIntersecting),
-      { threshold: 0.2 }
-    );
-    if (footerRef.current) observer.observe(footerRef.current);
-    return () => observer.disconnect();
-  }, []);
+  
 
   const scrollToProjects = () => {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
@@ -49,13 +40,7 @@ const Portfolio = () => {
           <span className="edge-vertical__text">AHMED EL GHASSIB — DATA & AI ENGINEER • </span>
         </div>
       </div>
-      <div className={`edge-text edge-bottom ${bottomEdgeVisible ? 'edge--visible' : ''}`} aria-hidden="true">
-        <div className="edge-bottom__track">
-          <span className="edge-bottom__text">AHMED EL GHASSIB — DATA & AI ENGINEER • </span>
-          <span className="edge-bottom__text">AHMED EL GHASSIB — DATA & AI ENGINEER • </span>
-          <span className="edge-bottom__text">AHMED EL GHASSIB — DATA & AI ENGINEER • </span>
-        </div>
-      </div>
+      
       {/* Header */}
       <Container>
         <header
@@ -316,6 +301,9 @@ const Portfolio = () => {
           padding: "3rem 0",
           textAlign: "center",
           borderTop: "1px solid #e0e0e0",
+          position: "relative",
+          zIndex: 20,
+          background: "#ffffff",
         }}
       >
         <Container>
