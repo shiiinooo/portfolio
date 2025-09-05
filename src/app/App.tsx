@@ -279,6 +279,7 @@ const Portfolio = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+                width: "100%",
               }}
             >
               <div
@@ -286,6 +287,9 @@ const Portfolio = () => {
                   position: "relative",
                   width: "100%",
                   maxWidth: "500px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
                 }}
               >
                 {/* Computer Image */}
