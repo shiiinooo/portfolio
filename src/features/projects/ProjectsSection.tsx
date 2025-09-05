@@ -32,6 +32,7 @@ export const ProjectsSection: FC = () => {
         </h2>
         
         <div
+          className="projects-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",

@@ -46,6 +46,7 @@ export const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
 
   return (
     <div
+      className="loading-screen"
       style={{
         position: "fixed",
         top: 0,
@@ -118,12 +119,15 @@ export const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
         >
           <h1
             style={{
-              fontSize: "clamp(2rem, 4vw, 3rem)",
+              fontSize: "clamp(1.8rem, 5vw, 3rem)",
               fontWeight: 900,
               letterSpacing: "-0.02em",
               lineHeight: 0.9,
               marginBottom: "1rem",
               color: "#000",
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
             }}
           >
             Ahmed EL GHASSIB

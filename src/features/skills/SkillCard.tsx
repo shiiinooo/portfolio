@@ -17,12 +17,13 @@ export const SkillCard: FC<SkillCardProps> = ({ skill }) => {
         cursor: 'pointer',
         border: '1px solid #e0e0e0',
         borderColor: isHovered ? '#bdbdbd' : '#e0e0e0',
-        padding: '2rem',
+        padding: 'clamp(1.5rem, 4vw, 2rem)',
         transition: 'all 0.3s ease',
         position: 'relative',
-        minHeight: '200px',
+        minHeight: 'clamp(180px, 25vh, 200px)',
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        borderRadius: '8px',
       }}
     >
       <div className="skill-number">({skill.number})</div>

@@ -30,6 +30,7 @@ export const AboutSection: FC = () => {
         </h2>
 
         <div
+          className="about-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",

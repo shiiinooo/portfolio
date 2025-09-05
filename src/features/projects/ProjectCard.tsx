@@ -21,10 +21,12 @@ export const ProjectCard: FC<ProjectCardProps> = ({ project, activeProjectId, on
       style={{
         border: '1px solid #e0e0e0',
         borderColor: isHovered ? '#bdbdbd' : '#e0e0e0',
-        padding: '2rem',
+        padding: 'clamp(1.5rem, 4vw, 2rem)',
         transition: 'all 0.3s ease',
         cursor: 'pointer',
-        position: 'relative'
+        position: 'relative',
+        borderRadius: '8px',
+        minHeight: 'auto',
       }}
     >
       <div
