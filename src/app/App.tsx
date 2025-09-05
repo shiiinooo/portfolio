@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from "react";
-import { Container } from "../ui/Container";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { Container, LoadingScreen } from "../ui";
 import { AboutSection } from "../features/about/AboutSection";
 import { SkillsSection } from "../features/skills/SkillsSection";
 import { ProjectsSection } from "../features/projects/ProjectsSection";
@@ -8,7 +8,8 @@ import cvPdf from "../assets/ahmed-elghassib-cv.pdf";
 import "../styles/globals.css";
 
 const Portfolio = () => {
-   const [cursorVisible, setCursorVisible] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+  const [cursorVisible, setCursorVisible] = useState(true);
   const footerRef = useRef<HTMLElement>(null);
 
   // Blinking cursor effect
@@ -19,15 +20,26 @@ const Portfolio = () => {
     return () => clearInterval(interval);
   }, []);
 
-  
-
   const scrollToProjects = () => {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const handleLoadingComplete = useCallback(() => {
+    setIsLoading(false);
+  }, []);
+
   return (
     <div>
-      {/* Edge typography: left/right continuous, bottom appears on footer */}
+      {isLoading && <LoadingScreen onComplete={handleLoadingComplete} />}
+      
+      {/* Main content with smooth fade-in */}
+      <div
+        style={{
+          opacity: isLoading ? 0 : 1,
+          transition: "opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
+        }}
+      >
+        {/* Edge typography: left/right continuous, bottom appears on footer */}
       <div className="edge-text edge-vertical edge-left" aria-hidden="true">
         <div className="edge-vertical__track">
           <span className="edge-vertical__text">AHMED EL GHASSIB — DATA & AI ENGINEER • </span>
@@ -301,9 +313,6 @@ const Portfolio = () => {
           padding: "3rem 0",
           textAlign: "center",
           borderTop: "1px solid #e0e0e0",
-          position: "relative",
-          zIndex: 20,
-          background: "#ffffff",
         }}
       >
         <Container>
@@ -326,6 +335,7 @@ const Portfolio = () => {
           </div>
         </Container>
       </footer>
+      </div>
     </div>
   );
 };
