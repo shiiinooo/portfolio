@@ -341,6 +341,9 @@ const Portfolio = () => {
           padding: "3rem 0",
           textAlign: "center",
           borderTop: "1px solid #e0e0e0",
+          position: "relative",
+          zIndex: 10,
+          backgroundColor: "#ffffff",
         }}
       >
         <Container>
