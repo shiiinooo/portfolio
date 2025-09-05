@@ -13,3 +13,14 @@ export interface Project {
   links: { demo: string; code: string };
   status: string;
 }
+
+export interface SocialLink {
+  name: string;
+  url: string;
+  icon: string;
+}
+
+export interface ContactInfo {
+  email: string;
+  socialLinks: SocialLink[];
+}

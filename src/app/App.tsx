@@ -3,6 +3,7 @@ import { Container, LoadingScreen } from "../ui";
 import { AboutSection } from "../features/about/AboutSection";
 import { SkillsSection } from "../features/skills/SkillsSection";
 import { ProjectsSection } from "../features/projects/ProjectsSection";
+import { ContactSection } from "../features/contact/ContactSection";
 import computerImg from "../assets/computer.png";
 import cvPdf from "../assets/ahmed-elghassib-cv.pdf";
 import "../styles/globals.css";
@@ -334,35 +335,32 @@ const Portfolio = () => {
       {/* Projects Section */}
       <ProjectsSection />
 
+      {/* Contact Section */}
+      <ContactSection />
+
       {/* Footer */}
       <footer
         ref={footerRef}
         style={{
-          padding: "3rem 0",
+          padding: "2rem 0",
           textAlign: "center",
-          borderTop: "1px solid #e0e0e0",
           position: "relative",
           zIndex: 10,
           backgroundColor: "#ffffff",
+          minHeight: "15vh",
+          display: "flex",
+          alignItems: "center",
         }}
       >
         <Container>
           <div
             style={{
-              fontSize: "2rem",
-              fontWeight: 600,
-              marginBottom: "1rem",
+              fontSize: "0.9rem",
+              opacity: 0.6,
+              fontWeight: 400,
             }}
           >
-            LET'S BUILD SOMETHING
-          </div>
-          <div
-            style={{
-              fontSize: "1rem",
-              opacity: 0.8,
-            }}
-          >
-            ELGHASSIBAHMED@GMAIL.COM
+            © 2025 Ahmed EL GHASSIB. All rights reserved.
           </div>
         </Container>
       </footer>
