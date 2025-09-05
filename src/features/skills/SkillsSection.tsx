@@ -18,7 +18,7 @@ export const SkillsSection: FC = () => {
       <Container>
         <h2
           style={{
-            fontSize: "3rem",
+            fontSize: "clamp(2rem, 5vw, 3rem)",
             fontWeight: 800,
             marginBottom: "2rem",
             letterSpacing: "-0.02em",
@@ -31,7 +31,7 @@ export const SkillsSection: FC = () => {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-            gap: "3rem",
+            gap: "clamp(1.5rem, 4vw, 3rem)",
             marginTop: "3rem",
           }}
         >

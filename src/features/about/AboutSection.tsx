@@ -19,7 +19,7 @@ export const AboutSection: FC = () => {
       <Container>
         <h2
           style={{
-            fontSize: "3rem",
+            fontSize: "clamp(2rem, 5vw, 3rem)",
             fontWeight: 800,
             marginBottom: "2rem",
             letterSpacing: "-0.02em",
@@ -32,7 +32,7 @@ export const AboutSection: FC = () => {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "1.1fr 0.9fr",
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
             gap: "2rem",
             alignItems: "center",
           }}
@@ -52,13 +52,13 @@ export const AboutSection: FC = () => {
             src={meImg}
             alt="Portrait"
             style={{
-              width: "70%",
-              maxWidth: "360px",
+              width: "clamp(200px, 50vw, 360px)",
               height: "auto",
               borderRadius: "12px",
               objectFit: "cover",
               filter: "grayscale(100%)",
               justifySelf: "center",
+              margin: "0 auto",
             }}
           />
         </div>

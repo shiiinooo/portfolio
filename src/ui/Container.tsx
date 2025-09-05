@@ -12,7 +12,7 @@ export const Container = ({ children, className = '' }: ContainerProps) => {
       style={{
         maxWidth: "1200px",
         margin: "0 auto",
-        padding: "0 40px",
+        padding: "0 clamp(1rem, 4vw, 2.5rem)",
       }}
     >
       {children}

@@ -10,6 +10,7 @@ import "../styles/globals.css";
 const Portfolio = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [cursorVisible, setCursorVisible] = useState(true);
+  const [isNavOpen, setIsNavOpen] = useState(false);
   const footerRef = useRef<HTMLElement>(null);
 
   // Blinking cursor effect
@@ -20,6 +21,21 @@ const Portfolio = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Close navigation when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const navWrapper = document.querySelector('.nav-wrapper');
+      if (isNavOpen && navWrapper && !navWrapper.contains(event.target as Node)) {
+        setIsNavOpen(false);
+      }
+    };
+
+    if (isNavOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [isNavOpen]);
+
   const scrollToProjects = () => {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -27,6 +43,14 @@ const Portfolio = () => {
   const handleLoadingComplete = useCallback(() => {
     setIsLoading(false);
   }, []);
+
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen);
+  };
+
+  const closeNav = () => {
+    setIsNavOpen(false);
+  };
 
   return (
     <div>
@@ -65,18 +89,18 @@ const Portfolio = () => {
             position: "relative",
           }}
         >
-          <div className="nav-wrapper">
-            <div className="hamburger" aria-label="Open navigation" role="button">
+          <div className={`nav-wrapper ${isNavOpen ? 'active' : ''}`}>
+            <div className="hamburger" aria-label="Open navigation" role="button" onClick={toggleNav}>
               <div className="bar"></div>
               <div className="bar"></div>
               <div className="bar"></div>
             </div>
             <div className="hover-bar" role="menu">
               <div className="menu">
-                <a href="#about" role="menuitem">ABOUT</a>
-                <a href="#skills" role="menuitem">SKILLS</a>
-                <a href="#projects" role="menuitem">SELECTED WORK</a>
-                <a href="#contact" role="menuitem">CONTACT</a>
+                <a href="#about" role="menuitem" onClick={closeNav}>ABOUT</a>
+                <a href="#skills" role="menuitem" onClick={closeNav}>SKILLS</a>
+                <a href="#projects" role="menuitem" onClick={closeNav}>SELECTED WORK</a>
+                <a href="#contact" role="menuitem" onClick={closeNav}>CONTACT</a>
               </div>
             </div>
           </div>
